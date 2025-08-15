@@ -2,29 +2,37 @@ import './App.css';
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    const bgColors = [
-      "#e0e7ff", "#ffe4e6", "#ecfccb", "#e0f7fa", "#fce4ec",
-      "#e8f5e9", "#ede7f6", "#fff9c4", "#e1f5fe", "#f3e5f5",
-      "#f0f4c3", "#ffecb3", "#ede9fe"
-    ];
+useEffect(() => {
+  const bgColors = [
+    "#e0e7ff", "#ffe4e6", "#ecfccb", "#e0f7fa", "#fce4ec",
+    "#e8f5e9", "#ede7f6", "#fff9c4", "#e1f5fe", "#f3e5f5",
+    "#f0f4c3", "#ffecb3", "#ede9fe"
+  ];
 
-    function changeProjectsBg() {
-      const portfolio = document.getElementById("portfolio");
-      const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
-      portfolio.style.setProperty("background-color", randomColor, "important");
-    }
+  function changeProjectsBg() {
+    const portfolio = document.getElementById("portfolio");
+    const randomColor = bgColors[Math.floor(Math.random() * bgColors.length)];
+    portfolio.style.setProperty("background-color", randomColor, "important");
+  }
 
-    document.getElementById("projects-link")?.addEventListener("click", (e) => {
+  // Smooth scroll helper
+  function smoothScroll(selector) {
+    document.querySelector(selector)?.addEventListener("click", (e) => {
       e.preventDefault();
-      document.querySelector("#portfolio").scrollIntoView({ behavior: "smooth" });
-      changeProjectsBg();
+      const targetId = e.target.getAttribute("href");
+      document.querySelector(targetId)?.scrollIntoView({ behavior: "smooth" });
+      if (targetId === "#portfolio") changeProjectsBg();
     });
+  }
 
-    document.querySelectorAll("#portfolio .card").forEach(card => {
-      card.addEventListener("click", changeProjectsBg);
-    });
-  }, []);
+  smoothScroll('a[href="#about"]');
+  smoothScroll('#projects-link');
+  smoothScroll('a[href="#contact"]');
+
+  document.querySelectorAll("#portfolio .card").forEach(card => {
+    card.addEventListener("click", changeProjectsBg);
+  });
+}, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -52,6 +60,7 @@ function App() {
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav">
+              <li className="nav-item"><a className="nav-link" href="#about">About</a></li>
               <li className="nav-item"><a id="projects-link" className="nav-link" href="#portfolio">Projects</a></li>
               <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
             </ul>
@@ -85,7 +94,40 @@ function App() {
         </div>
       </header>
 
-      
+      {/* About Me Section */}
+      <section id="about" className="py-5 bg-light">
+        <div className="container">
+          <h2 className="text-center fw-bold mb-5">About Me</h2>
+          <div className="row align-items-center">
+            <div className="col-md-5 text-center mb-4 mb-md-0">
+              <img 
+                src="/aboutme.jpg" 
+                alt="Khatrina Joice Gonzales" 
+                className="shadow"
+                style={{ width: "100%", height: "100%", maxWidth: "300px", objectFit: "contain", borderRadius: "10px" }}
+              />
+            </div>
+            <div className="col-md-7">
+              <p className="lead" style={{ textAlign: "justify" }}>
+                Hello! I’m <strong>Khatrina Joice Gonzales</strong>, a third-year Computer Science student 
+                at <strong>De La Salle Lipa</strong>. My academic journey has been driven by a passion 
+                for problem-solving, creativity, and building impactful digital solutions. I enjoy 
+                working with modern technologies, from crafting responsive websites to developing 
+                functional web-based systems.
+              </p>
+              <p className="lead" style={{ textAlign: "justify" }}>
+                My experience includes creating projects such as computer and student management systems, 
+                as well as tools to help students review and organize their lessons effectively. Beyond coding, 
+                I’m passionate about continuous learning, collaboration, and turning ideas into user-friendly 
+                applications.
+              </p>
+              <a href="#contact" className="btn btn-outline-primary fw-semibold shadow">
+                Get In Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-5">
