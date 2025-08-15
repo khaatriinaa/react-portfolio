@@ -98,16 +98,22 @@ useEffect(() => {
       <section id="about" className="py-5 bg-light">
         <div className="container">
           <h2 className="text-center fw-bold mb-5">About Me</h2>
-          <div className="row align-items-center">
-            <div className="col-md-5 text-center mb-4 mb-md-0">
-              <img 
-                src="/aboutme.jpg" 
-                alt="Khatrina Joice Gonzales" 
+          <div className="row align-items-center justify-content-center text-center text-md-start">
+            <div className="col-md-4 d-flex justify-content-center">
+              <img
+                src="/aboutme.jpg"
+                alt="Khatrina Joice Gonzales"
                 className="shadow"
-                style={{ width: "100%", height: "100%", maxWidth: "300px", objectFit: "contain", borderRadius: "10px" }}
+                style={{
+                  width: "100%",
+                  maxWidth: "350px",
+                  height: "auto",
+                  objectFit: "cover",
+                  borderRadius: "10px"
+                }}
               />
             </div>
-            <div className="col-md-7">
+            <div className="col-md-6 d-flex flex-column justify-content-center">
               <p className="lead" style={{ textAlign: "justify" }}>
                 Hello! I’m <strong>Khatrina Joice Gonzales</strong>, a third-year Computer Science student 
                 at <strong>De La Salle Lipa</strong>. My academic journey has been driven by a passion 
@@ -121,7 +127,7 @@ useEffect(() => {
                 I’m passionate about continuous learning, collaboration, and turning ideas into user-friendly 
                 applications.
               </p>
-              <a href="#contact" className="btn btn-outline-primary fw-semibold shadow">
+              <a href="#contact" className="btn btn-outline-primary fw-semibold shadow align-self-md-start align-self-center">
                 Get In Touch
               </a>
             </div>
