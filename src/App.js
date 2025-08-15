@@ -40,7 +40,7 @@ function App() {
     alert("Your message is sent!");
     e.target.reset();
   };
-
+  
   return (
     <div className="App">
       {/* Navigation */}
@@ -61,6 +61,15 @@ function App() {
 
       {/* Hero Section */}
       <header className="hero-section py-5">
+        <div className="floating-shapes">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div className="container hero-content">
           <div className="hero-text">
             <h1 className="display-4 fw-bold">Hi, I am Khatrina Joice Gonzales!</h1>
@@ -75,6 +84,8 @@ function App() {
           </div>
         </div>
       </header>
+
+      
 
       {/* Portfolio Section */}
       <section id="portfolio" className="py-5">

@@ -144,6 +144,55 @@ h2 {
 /* ========== HERO SECTION ========== */
 .hero-section {
   position: relative;
+  overflow: hidden;
+}
+
+.floating-shapes span {
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  animation: float 10s linear infinite;
+}
+
+.floating-shapes span:nth-child(1) {
+  left: 5%;
+  animation-delay: 0s;
+}
+.floating-shapes span:nth-child(2) {
+  left: 20%;
+  animation-delay: 6s;
+}
+.floating-shapes span:nth-child(3) {
+  left: 35%;
+  animation-delay: 3s;
+}
+.floating-shapes span:nth-child(4) {
+  left: 50%;
+  animation-delay: 4s;
+}
+.floating-shapes span:nth-child(5) {
+  left: 65%;
+  animation-delay: 2s;
+}
+.floating-shapes span:nth-child(6) {
+  left: 80%;
+  animation-delay: 5s;
+}
+.floating-shapes span:nth-child(7) {
+  left: 95%;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+.hero-section {
+  position: relative;
   background: linear-gradient(to bottom, #9b5de5, #6a4c93);
   color: white;
   overflow: hidden;
@@ -155,6 +204,8 @@ h2 {
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
